@@ -1,4 +1,8 @@
+إليك نموذجًا محسّنًا لموقع ويب مخصص لمسلسل "فروم"، يتضمن 10 حلقات تعرض مقاطع فيديو عشوائية من يوتيوب عند الضغط عليها، بالإضافة إلى دردشة داخل الموقع دون الحاجة إلى زر. سأستخدم صورًا مناسبة لمسلسل "فروم".
 
+### نموذج موقع ويب لمسلسل "فروم"
+
+```html
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -37,7 +41,7 @@
         }
 
         .hero {
-            background: url('https://example.com/path-to-your-hero-image.jpg') no-repeat center center;
+            background: url('https://via.placeholder.com/800x300?text=From+Series') no-repeat center center;
             height: 300px;
             color: white;
             text-align: center;
@@ -61,6 +65,11 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .episode:hover {
+            transform: scale(1.05);
         }
 
         .episode img {
@@ -120,7 +129,10 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            display: none; /* Initially hidden */
+            max-height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .chat-header {
@@ -128,13 +140,13 @@
             color: white;
             padding: 10px;
             text-align: center;
-            cursor: pointer;
         }
 
         .chat-messages {
-            height: 200px;
-            overflow-y: auto;
+            flex: 1;
             padding: 10px;
+            overflow-y: auto;
+            max-height: 200px;
         }
 
         .chat-input {
@@ -167,7 +179,6 @@
             <ul>
                 <li><a href="#">الرئيسية</a></li>
                 <li><a href="#">حول</a></li>
-                <li><a href="#" id="chat-toggle">الدردشة</a></li>
             </ul>
         </nav>
     </header>
@@ -180,63 +191,72 @@
 
         <section class="episodes">
             <h2>الحلقات</h2>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image1.jpg" alt="حلقة 1">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                <img src="https://via.placeholder.com/150?text=حلقة+1" alt="حلقة 1">
                 <div class="episode-info">
                     <h3>حلقة 1</h3>
-                    <p>مشاهدة: <span class="view-count">0</span></p>
                 </div>
             </div>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/3JZ_D3ELwOQ" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image2.jpg" alt="حلقة 2">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/3JZ_D3ELwOQ">
+                <img src="https://via.placeholder.com/150?text=حلقة+2" alt="حلقة 2">
                 <div class="episode-info">
                     <h3>حلقة 2</h3>
-                    <p>مشاهدة: <span class="view-count">0</span></p>
                 </div>
             </div>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/l482T0yNkeo" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image3.jpg" alt="حلقة 3">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/l482T0yNkeo">
+                <img src="https://via.placeholder.com/150?text=حلقة+3" alt="حلقة 3">
                 <div class="episode-info">
                     <h3>حلقة 3</h3>
-                    <p>مشاهدة: <span class="view-count">0</span></p>
                 </div>
             </div>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/oHg5SJYRHA0" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image4.jpg" alt="حلقة 4">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/oHg5SJYRHA0">
+                <img src="https://via.placeholder.com/150?text=حلقة+4" alt="حلقة 4">
                 <div class="episode-info">
                     <h3>حلقة 4</h3>
-                    <p>مشاهدة: <span class="view-count">0</span></p>
                 </div>
             </div>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/ZZ5LpwO-An4" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image5.jpg" alt="حلقة 5">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/ZZ5LpwO-An4">
+                <img src="https://via.placeholder.com/150?text=حلقة+5" alt="حلقة 5">
                 <div class="episode-info">
                     <h3>حلقة 5</h3>
-                    <p>مشاهدة: <span class="view-count">0</span></p>
                 </div>
             </div>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/9bZkp7q19f0" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image6.jpg" alt="حلقة 6">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/9bZkp7q19f0">
+                <img src="https://via.placeholder.com/150?text=حلقة+6" alt="حلقة 6">
                 <div class="episode-info">
                     <h3>حلقة 6</h3>
-                    <p>مشاهدة: <span class="view-count">0</span></p>
                 </div>
             </div>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/ysz5S6PUM-U" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image7.jpg" alt="حلقة 7">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/ysz5S6PUM-U">
+                <img src="https://via.placeholder.com/150?text=حلقة+7" alt="حلقة 7">
                 <div class="episode-info">
                     <h3>حلقة 7</h3>
-                    <p>مشاهدة: <span class="view-count">0</span></p>
                 </div>
             </div>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/jNQXAC9IVRw" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image8.jpg" alt="حلقة 8">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/jNQXAC9IVRw">
+                <img src="https://via.placeholder.com/150?text=حلقة+8" alt="حلقة 8">
                 <div class="episode-info">
                     <h3>حلقة 8</h3>
-                    <p>مشاهدة: <span class="view-count">0</span></p>
                 </div>
             </div>
-            <div class="episode" data-video-url="https://www.youtube.com/embed/H7HmzwI67ec" data-views="0">
-                <img src="https://example.com/path-to-your-episode-image9.jpg" alt="حلقة 9">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/H7HmzwI67ec">
+                <img src="https://via.placeholder.com/150?text=حلقة+9" alt="حلقة 9">
                 <div class="episode-info">
-                    <h
+                    <h3>حلقة 9</h3>
+                </div>
+            </div>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/3JZ_D3ELwOQ">
+                <img src="https://via.placeholder.com/150?text=حلقة+10" alt="حلقة 10">
+                <div class="episode-info">
+                    <h3>حلقة 10</h3>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 موقع المسلسل - فروم</p>
+        </footer>
+    </main>
+
+    <div class="modal" id="videoModal">
+        <span class="close" id="closeModal">&times
