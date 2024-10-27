@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع الأفلام الرائع</title>
+    <title>RD MOVIE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* لون الخلفية */
-            color: #ffffff; /* لون النص */
-            overflow-x: hidden; /* منع التمرير الأفقي */
+            background-color: #000000; /* لون الخلفية */
         }
 
         header {
-            background: #1c1c1c;
+            background: #333;
             color: #fff;
-            padding: 20px;
+            padding: 10px 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         nav ul {
@@ -36,33 +33,18 @@
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ff4081; /* تغيير اللون عند التمرير */
         }
 
         .hero {
-            background: url('https://cdn.discordapp.com/attachments/1287899966437724222/1300007723458629722/CR222.png') no-repeat center center;
-            background-size: cover;
-            height: 400px;
+            background: url('https://cdn.discordapp.com/attachments/1287899966437724222/1300007723458629722/CR222.png?ex=671f460a&is=671df48a&hm=cbe2afd3252d48a07cfaeda8fd34aab83ca57e9f8c660a53486557db45f800e0&') no-repeat center center;
+            background-size: cover; /* تجعل الصورة تغطي الخلفية */
+            height: 300px;
             color: white;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative;
-        }
-
-        .hero h2 {
-            font-size: 3em;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: 1.2em;
         }
 
         .episodes {
@@ -70,18 +52,17 @@
             flex-wrap: wrap;
             justify-content: center;
             margin: 20px 0;
-            padding: 0 10px;
         }
 
         .episode {
             margin: 10px;
             cursor: pointer;
-            background-color: #292929;
+            background-color: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
-            width: 300px;
+            width: 300px; /* عرض محدد لكل حلقة */
         }
 
         .episode:hover {
@@ -91,13 +72,6 @@
         .episode img {
             border-radius: 8px 8px 0 0;
             width: 100%;
-            height: auto;
-            display: block;
-            transition: filter 0.3s;
-        }
-
-        .episode img:hover {
-            filter: brightness(70%); /* تقليل السطوع عند التمرير */
         }
 
         .episode-info {
@@ -105,23 +79,8 @@
             text-align: center;
         }
 
-        .rating {
-            margin: 5px 0;
-        }
-
-        .star {
-            cursor: pointer;
-            color: #fff;
-            font-size: 1.5em;
-            transition: color 0.3s;
-        }
-
-        .star:hover {
-            color: gold; /* تغيير لون النجوم عند التمرير */
-        }
-
         footer {
-            background: #1c1c1c;
+            background: #333;
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -140,7 +99,6 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 1000; /* وضعية أعلى */
         }
 
         .modal iframe {
@@ -158,20 +116,20 @@
             cursor: pointer;
         }
 
+        /* Chat box styles */
         .chat-container {
             position: fixed;
             bottom: 20px;
             right: 20px;
             width: 300px;
-            background-color: #292929;
+            background-color: white;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            max-height: 400px;
+            max-height: 300px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            z-index: 1000; /* وضعية أعلى */
         }
 
         .chat-header {
@@ -185,7 +143,7 @@
             flex: 1;
             padding: 10px;
             overflow-y: auto;
-            max-height: 300px;
+            max-height: 200px;
         }
 
         .chat-input {
@@ -198,40 +156,34 @@
             padding: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #fff;
         }
 
         .chat-input button {
             padding: 5px;
             margin-left: 5px;
-            background-color: #ff4081; /* لون الزر */
+            background-color: #333;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-
-        .chat-input button:hover {
-            background-color: #ff79b0; /* لون الزر عند التمرير */
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>موقع الأفلام الرائع</h1>
+        <h1>MOVIE RD</h1>
         <nav>
             <ul>
                 <li><a href="#">الرئيسية</a></li>
                 <li><a href="#">حول</a></li>
-                <li><a href="#">اتصل بنا</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h2>استمتع بمشاهدة الأفلام!</h2>
-            <p>اكتشف أفضل العروض والمزيد.</p>
+            <h2>استمتع بمسلسل فروم!</h2>
+            <p>اكتشف الحلقات والمزيد.</p>
         </section>
 
         <section class="episodes">
@@ -239,146 +191,80 @@
 
             <!-- إضافة حلقات مع الفيديوهات -->
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656900?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008400964550667/1.jpg" alt="حلقة 1">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008400964550667/1.jpg?ex=671f46ab&is=671df52b&hm=54bb592cbe0e320d97ae40f40362c7d6d7e14e0406ef186e90c75bd02df0aa94&" alt="حلقة 1">
                 <div class="episode-info">
                     <h3>حلقة 1</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656901?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008401216081970/2.jpg" alt="حلقة 2">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008401216081970/2.jpg?ex=671f46ab&is=671df52b&hm=b26f10738273fcb34249313fb25b5018b63e9bf007fdf9082e47ade04d2b5364&" alt="حلقة 2">
                 <div class="episode-info">
                     <h3>حلقة 2</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656902?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008401439483945/3.jpg" alt="حلقة 3">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008401606279240/3.jpg?ex=671f46ab&is=671df52b&hm=13ecc4ba7dc71e6e070aefeacd10670272b00b717f4e7cc56218312422aa0f48&" alt="حلقة 3">
                 <div class="episode-info">
                     <h3>حلقة 3</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656903?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008401569288194/4.jpg" alt="حلقة 4">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008401790697514/4.jpg?ex=671f46ab&is=671df52b&hm=6718bdb1708e0cd5db0f1723f27076c82692456cd5e6bc52623116151bc9ec3d&" alt="حلقة 4">
                 <div class="episode-info">
                     <h3>حلقة 4</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656904?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008401778288654/5.jpg" alt="حلقة 5">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008399211069440/5.jpg?ex=671f46ab&is=671df52b&hm=4f45cd3b14c0ab9c99b620231cfac55f2a601a0dc52b51118e6ef84f884b4b05&" alt="حلقة 5">
                 <div class="episode-info">
                     <h3>حلقة 5</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656905?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008401898587155/6.jpg" alt="حلقة 6">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008399462862878/6.jpg?ex=671f46ab&is=671df52b&hm=55559e5b9957328224dcc0b25b7e69b00e01bc3793da893bed05d6e5fa5a22f5&" alt="حلقة 6">
                 <div class="episode-info">
                     <h3>حلقة 6</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656906?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008402026899462/7.jpg" alt="حلقة 7">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008399676637184/7.jpg?ex=671f46ab&is=671df52b&hm=0fda4566db2c924f16c55b610a12e1788c8ec91145922ad37dc448048b5d6b58&" alt="حلقة 7">
                 <div class="episode-info">
                     <h3>حلقة 7</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656907?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008402171495522/8.jpg" alt="حلقة 8">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008400268165181/8.jpg?ex=671f46ab&is=671df52b&hm=4b92a2f3bc564a600bbf8ae511257bc8d13d094984d0566afca7e2fe043acf30&" alt="حلقة 8">
                 <div class="episode-info">
                     <h3>حلقة 8</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656908?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008402294391810/9.jpg" alt="حلقة 9">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008400473817108/9.jpg?ex=671f46ab&is=671df52b&hm=b33275d05f96a4e22c474f3f56135c4039267c6a26e081d9732b980a7453b5eb&" alt="حلقة 9">
                 <div class="episode-info">
                     <h3>حلقة 9</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
             <div class="episode" data-video-url="https://player.vimeo.com/video/1023656909?badge=0&autopause=0&player_id=0&app_id=58479">
-                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008402426790914/10.jpg" alt="حلقة 10">
+                <img src="https://cdn.discordapp.com/attachments/1287899966437724222/1300008400716959817/10.jpg?ex=671f46ab&is=671df52b&hm=017e2d0005900ebe6e8a636f7fc8458bc2c3c972c856e88a41515aa3feebbc17&" alt="حلقة 10">
                 <div class="episode-info">
                     <h3>حلقة 10</h3>
-                    <div class="rating">
-                        <span class="star" data-rating="1">&#9733;</span>
-                        <span class="star" data-rating="2">&#9733;</span>
-                        <span class="star" data-rating="3">&#9733;</span>
-                        <span class="star" data-rating="4">&#9733;</span>
-                        <span class="star" data-rating="5">&#9733;</span>
-                    </div>
                 </div>
             </div>
 
         </section>
+
+        <footer>
+            <p>جميع الحقوق محفوظة &copy; 2024</p>
+        </footer>
     </main>
 
     <div class="modal" id="videoModal">
@@ -386,7 +272,7 @@
         <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
-    <div class="chat-container">
+    <div class="chat-container" id="chatContainer">
         <div class="chat-header">الدردشة</div>
         <div class="chat-messages" id="chatMessages"></div>
         <div class="chat-input">
@@ -394,10 +280,6 @@
             <button id="sendMessage">إرسال</button>
         </div>
     </div>
-
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2024</p>
-    </footer>
 
     <script>
         const episodes = document.querySelectorAll('.episode');
@@ -407,7 +289,7 @@
 
         episodes.forEach(episode => {
             episode.addEventListener('click', function() {
-                const videoUrl = episode.getAttribute('data-video-url');
+                const videoUrl = this.getAttribute('data-video-url');
                 videoPlayer.src = videoUrl;
                 modal.style.display = 'flex';
             });
@@ -415,31 +297,22 @@
 
         closeModal.addEventListener('click', function() {
             modal.style.display = 'none';
-            videoPlayer.src = '';
+            videoPlayer.src = ''; // Stop the video when closing
         });
 
-        // تقييم الأفلام
-        const stars = document.querySelectorAll('.star');
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = star.getAttribute('data-rating');
-                alert(`تم تقييم الفيلم بـ ${rating} نجوم!`);
-            });
-        });
-
-        // الدردشة
+        // Chat functionality
         const chatInput = document.getElementById('chatInput');
-        const chatMessages = document.getElementById('chatMessages');
         const sendMessage = document.getElementById('sendMessage');
+        const chatMessages = document.getElementById('chatMessages');
 
         sendMessage.addEventListener('click', function() {
-            const messageText = chatInput.value;
-            if (messageText.trim() !== '') {
-                const messageElement = document.createElement('div');
-                messageElement.textContent = messageText;
-                chatMessages.appendChild(messageElement);
-                chatInput.value = '';
-                chatMessages.scrollTop = chatMessages.scrollHeight; // تمرير الرسائل لأسفل
+            const messageText = chatInput.value.trim();
+            if (messageText) {
+                const message = document.createElement('div');
+                message.textContent = messageText;
+                chatMessages.appendChild(message);
+                chatInput.value = ''; // Clear input
+                chatMessages.scrollTop = chatMessages.scrollHeight; // Auto scroll to the bottom
             }
         });
     </script>
