@@ -1,145 +1,242 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html lang="ar">
 <head>
-<title>RD_MOIVE</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="js/jquery-func.js"></script>
-<!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع المسلسل - فروم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: url('https://example.com/path-to-your-hero-image.jpg') no-repeat center center;
+            height: 300px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .episodes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .episode {
+            margin: 10px;
+            cursor: pointer;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .episode img {
+            border-radius: 8px 8px 0 0;
+            width: 100%;
+        }
+
+        .episode-info {
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal iframe {
+            max-width: 800px;
+            width: 80%;
+            height: 450px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Chat box styles */
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+        }
+
+        .chat-header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chat-input button {
+            padding: 5px;
+            margin-left: 5px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<!-- START PAGE SOURCE -->
-<div id="shell">
-  <div id="header">
-    <h1 id="logo"><a href="#">RD_MOIVE</a></h1>
-    <div class="social"> <span>FOLLOW US ON:</span>
-      <ul>
-        <li><a class="twitter" href="#">https://www.facebook.com/store.iq.rd</a></li>
-        <li><a class="facebook" href="#">https://www.facebook.com/store.iq.rd</a></li>
-        <li><a class="vimeo" href="#">https://www.facebook.com/store.iq.rd</a></li>
-        <li><a class="rss" href="#">https://www.facebook.com/store.iq.rd</a></li>
-      </ul>
-    </div>
-    <div id="navigation">
-      <ul>
-        <li><a class="active" href="#">HOME</a></li>
-        <li><a href="#">COMING SOON</a></li>
-        <li><a href="#">COMING SOON</a></li>
-        <li><a href="#">COMING SOON</a></li>
-        <li><a href="#">COMING SOON</a></li>
-        <li><a href="#">COMING SOON</a></li>
-      </ul>
-    </div>
-    <div id="sub-navigation">
-      <ul>
-        <li><a href="#">SHOW ALL</a></li>
-        <li><a href="#">LATEST TRAILERS</a></li>
-        <li><a href="#">TOP RATED</a></li>
-        <li><a href="#">MOST COMMENTED</a></li>
-      </ul>
-      <div id="search">
-        <form action="#" method="get" accept-charset="utf-8">
-          <label for="search-field">SEARCH</label>
-          <input type="text" name="search field" value="Enter search here" id="search-field" class="blink search-field"  />
-          <input type="submit" value="GO!" class="search-button" />
-        </form>
-      </div>
-    </div>
-  </div>
-  <div id="main">
-    <div id="content">
-      <div class="box">
-        <div class="head">
-          <h2>LATEST TRAILERS</h2>
-          <p class="text-right"><a href="#">See all</a></p>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 1</span></span> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="css/images/movie1.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+    <header>
+        <h1>موقع المسلسل - فروم</h1>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">حول</a></li>
+                <li><a href="#" id="chat-toggle">الدردشة</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>استمتع بمسلسل فروم!</h2>
+            <p>اكتشف الحلقات والمزيد.</p>
+        </section>
+
+        <section class="episodes">
+            <h2>الحلقات</h2>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image1.jpg" alt="حلقة 1">
+                <div class="episode-info">
+                    <h3>حلقة 1</h3>
+                    <p>مشاهدة: <span class="view-count">0</span></p>
+                </div>
             </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 2</span></span> <a href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ"><img src="css/images/movie2.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/3JZ_D3ELwOQ" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image2.jpg" alt="حلقة 2">
+                <div class="episode-info">
+                    <h3>حلقة 2</h3>
+                    <p>مشاهدة: <span class="view-count">0</span></p>
+                </div>
             </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 3</span></span> <a href="https://www.youtube.com/watch?v=l482T0yNkeo"><img src="css/images/movie3.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/l482T0yNkeo" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image3.jpg" alt="حلقة 3">
+                <div class="episode-info">
+                    <h3>حلقة 3</h3>
+                    <p>مشاهدة: <span class="view-count">0</span></p>
+                </div>
             </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 4</span></span> <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0"><img src="css/images/movie4.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/oHg5SJYRHA0" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image4.jpg" alt="حلقة 4">
+                <div class="episode-info">
+                    <h3>حلقة 4</h3>
+                    <p>مشاهدة: <span class="view-count">0</span></p>
+                </div>
             </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 5</span></span> <a href="https://www.youtube.com/watch?v=ZZ5LpwO-An4"><img src="css/images/movie5.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/ZZ5LpwO-An4" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image5.jpg" alt="حلقة 5">
+                <div class="episode-info">
+                    <h3>حلقة 5</h3>
+                    <p>مشاهدة: <span class="view-count">0</span></p>
+                </div>
             </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie last">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 6</span></span> <a href="https://www.youtube.com/watch?v=9bZkp7q19f0"><img src="css/images/movie6.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/9bZkp7q19f0" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image6.jpg" alt="حلقة 6">
+                <div class="episode-info">
+                    <h3>حلقة 6</h3>
+                    <p>مشاهدة: <span class="view-count">0</span></p>
+                </div>
             </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="cl">&nbsp;</div>
-      </div>
-      <div class="box">
-        <div class="head">
-          <h2>TOP RATED</h2>
-          <p class="text-right"><a href="#">See all</a></p>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 7</span></span> <a href="https://www.youtube.com/watch?v=ysz5S6PUM-U"><img src="css/images/movie7.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/ysz5S6PUM-U" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image7.jpg" alt="حلقة 7">
+                <div class="episode-info">
+                    <h3>حلقة 7</h3>
+                    <p>مشاهدة: <span class="view-count">0</span></p>
+                </div>
             </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 8</span></span> <a href="https://www.youtube.com/watch?v=jNQXAC9IVRw"><img src="css/images/movie8.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
+            <div class="episode" data-video-url="https://www.youtube.com/embed/jNQXAC9IVRw" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image8.jpg" alt="حلقة 8">
+                <div class="episode-info">
+                    <h3>حلقة 8</h3>
+                    <p>مشاهدة: <span class="view-count">0</span></p>
+                </div>
             </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">حلقة 9</span></span> <a href="https://www.youtube.com/watch?v=H7HmzwI67ec"><img src="css/images/movie9.jpg" alt="" /></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
+            <div class="episode" data-video-url="https://www.youtube.com/embed/H7HmzwI67ec" data-views="0">
+                <img src="https://example.com/path-to-your-episode-image9.jpg" alt="حلقة 9">
+                <div class="episode-info">
+                    <h
